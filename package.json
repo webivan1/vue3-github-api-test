@@ -21,6 +21,7 @@
     "@radix-icons/vue": "^1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "pinia": "^2.1.7",
     "radix-vue": "^1.4.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
