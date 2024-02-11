@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <h3 class="text-center font-semibold text-md md:text-3xl">
+  <h3 class="text-center font-semibold text-md md:text-3xl mb-4 md:mb-8">
     We found
     <FontAwesomeIcon v-if="loading" :icon="faSpinner" spin class="mx-3 text-orange-400" />
     <span

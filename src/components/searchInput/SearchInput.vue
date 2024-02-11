@@ -16,7 +16,7 @@ const handleChangeInput = useDebounce(searchRepositories, 300)
 </script>
 
 <template>
-  <div class="container py-10 md:py-40">
+  <div class="container py-10 md:py-28">
     <label class="block relative">
       <FontAwesomeIcon
         :icon="faMagnifyingGlass"
