@@ -42,10 +42,7 @@ export const useRepositoriesStore = defineStore('repositories', () => {
         }
       )
 
-      if (data.items.length >= perPage.value) {
-        canLoadMore.value = true
-      }
-
+      canLoadMore.value = data.items.length >= perPage.value
       total.value = data.total_count
       repositories.value = merge === false ? data.items : repositories.value.concat(data.items)
       loading.value = false

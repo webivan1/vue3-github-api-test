@@ -16,8 +16,12 @@ const { loadMoreRepositories } = store
   <div class="container">
     <div v-if="!loading && repositories.length === 0">
       <Alert>
-        <AlertTitle>Unfortunately, there is nothing here yet</AlertTitle>
-        <AlertDescription>Please enter something in the search field</AlertDescription>
+        <AlertTitle data-testid="alert-title">
+          Unfortunately, there is nothing here yet
+        </AlertTitle>
+        <AlertDescription data-testid="alert-desc">
+          Please enter something in the search field
+        </AlertDescription>
       </Alert>
     </div>
 
@@ -26,7 +30,7 @@ const { loadMoreRepositories } = store
       <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-7">
         <Repository v-for="item of repositories" :key="item.id" :item />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center py-6">
         <LoadMoreBtn v-if="canLoadMore" :loading @loadMore="loadMoreRepositories" />
       </div>
     </div>
