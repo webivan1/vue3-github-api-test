@@ -17,6 +17,7 @@ concurrency:
 
 env:
   VITE_APP_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  BASE_URL: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   test:
