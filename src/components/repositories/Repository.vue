@@ -23,7 +23,7 @@ defineProps<{ item: RepositoryType }>()
 </script>
 
 <template>
-  <Card class="flex flex-col" data-testid="repository">
+  <Card class="flex flex-col overflow-hidden" data-testid="repository">
     <CardContent class="flex justify-center pt-5">
       <img :src="item.owner.avatar_url" class="w-3/4 h-auto rounded-full" />
     </CardContent>
@@ -47,7 +47,7 @@ defineProps<{ item: RepositoryType }>()
     <CardContent class="flex gap-1 flex-wrap m-0 py-0">
       <Badge v-for="title of item.topics" :key="title">{{ title }}</Badge>
     </CardContent>
-    <CardHeader class="flex-1">
+    <CardHeader class="flex-1 overflow-hidden">
       <CardTitle data-testid="title">{{ item.full_name }}</CardTitle>
       <CardDescription v-if="item.description" data-testid="description">{{
         item.description
