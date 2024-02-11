@@ -1,13 +1,11 @@
 import { defineStore } from 'pinia'
 import { ThemeEnum } from '@/components/themeToggle/enums/ThemeEnum'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 export const THEME_KEY = 'theme'
 
-export const useThemeStore = defineStore(THEME_KEY, () => {
+export const useThemeStore = defineStore('theme', () => {
   const currentTheme = (localStorage.getItem(THEME_KEY) ?? ThemeEnum.LIGHT) as ThemeEnum
-
-  console.log('THEME', currentTheme)
 
   const theme = ref<ThemeEnum>(currentTheme)
 
@@ -21,13 +19,9 @@ export const useThemeStore = defineStore(THEME_KEY, () => {
     addThemeClass(newTheme)
   }
 
-  onMounted(() => {
-    console.log('MOUNTED', theme.value)
-    addThemeClass(theme.value)
-  })
-
   return {
     theme,
-    changeTheme
+    changeTheme,
+    addThemeClass
   }
 })

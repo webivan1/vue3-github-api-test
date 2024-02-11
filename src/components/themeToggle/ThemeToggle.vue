@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, toRefs } from 'vue'
 import { Button } from '@/components/ui/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
@@ -8,7 +9,8 @@ import type { ThemeButtonType } from '@/components/themeToggle/types/ThemeButton
 
 const store = useThemeStore()
 
-const { changeTheme } = store
+const { changeTheme, addThemeClass } = store
+const { theme } = toRefs(store)
 
 const buttons: ThemeButtonType[] = [
   {
@@ -22,12 +24,16 @@ const buttons: ThemeButtonType[] = [
     action: () => changeTheme(ThemeEnum.DARK)
   }
 ]
+
+onMounted(() => {
+  addThemeClass(theme.value)
+})
 </script>
 
 <template>
   <template v-for="btn of buttons" :key="btn.theme">
     <Button
-      v-if="store.theme === btn.theme"
+      v-if="theme === btn.theme"
       variant="outline"
       size="icon"
       :data-testid="`theme-${btn.theme}-btn`"
