@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BASE_URL: /vue3-github-api-test/
+  VITE_BASE_URL: /vue3-github-api-test/
 
 jobs:
   test:
