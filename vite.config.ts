@@ -8,7 +8,7 @@ import autoprefixer from "autoprefixer"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/vue3-github-api-test/',
   plugins: [
     vue(),
   ],
