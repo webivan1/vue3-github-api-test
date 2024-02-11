@@ -27,13 +27,17 @@ export const useRepositoriesStore = defineStore('repositories', () => {
     try {
       abortController = new AbortController()
 
+      const { VITE_APP_GITHUB_API_URL, VITE_APP_GITHUB_ACCESS_TOKEN } = import.meta.env
+
       const { data } = await axios.get<RepositoryResponseType>(
-        `${import.meta.env.VITE_APP_GITHUB_API_URL}/search/repositories?q=${query}&page=${page}`,
+        `${VITE_APP_GITHUB_API_URL}/search/repositories?q=${query}&page=${page}`,
         {
           signal: abortController.signal,
           headers: {
             Accept: 'application/vnd.github+json',
-            Authorization: `Bearer ${import.meta.env.VITE_APP_GITHUB_ACCESS_TOKEN}`
+            Authorization: VITE_APP_GITHUB_ACCESS_TOKEN
+              ? `Bearer ${VITE_APP_GITHUB_ACCESS_TOKEN}`
+              : undefined
           }
         }
       )

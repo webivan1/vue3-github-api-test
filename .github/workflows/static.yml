@@ -16,7 +16,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  VITE_APP_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   BASE_URL: /vue3-github-api-test/
 
 jobs:
