@@ -1,0 +1,18 @@
+def now = new Date()
+
+pipeline {
+  agent any
+  stages {
+    stage('Stage 1 - SCM') {
+      steps {
+        echo 'Stage 1 - Source Control'
+        echo "checking out branch ${env.BRANCH_NAME}"
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: env.BRANCH_NAME]],
+          userRemoteConfigs: [[url: 'https://github.com/webivan1/vue3-github-api-test.git', credentialsId: 'github']]
+        ])
+      }
+    }
+  }
+}
